@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./reset.css"
+import Header from "./header"
+import Color from "./color"
+import Characteristics from "./Characteristics"
+import Video from "./Video"
+import Contact from "./Contact"
+import Price from "./Price"
+import react,{useState} from "react"
 
 function App() {
+  const [active, setActive] = useState(2)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header setActive={setActive} active={active}/> 
+
+      { active === 0 && <Color />}
+      { active === 1 && <Characteristics />}
+      { active === 2 && <Video />}
+      { active === 3 && <Price />}
+      { active === 4 && <Contact />} 
     </div>
   );
 }
